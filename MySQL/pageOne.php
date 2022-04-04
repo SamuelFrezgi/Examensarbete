@@ -12,16 +12,19 @@
 
 <body>
     <div id="topnav">
-        <button class="tablink" onclick="openPage('Home',this)">Page one </button>
-        <button class="tablink" onclick="openPage('News',this)" id="defaultOpen">Page Two</button>
+        <button class="tablink" onclick="openPage('pageOne',this)">Page one </button>
+        <button class="tablink" onclick="openPage('pageTwo',this)" id="defaultOpen">Page Two</button>
     </div>
 
     <!-- page one-->
-    <div id="Home" class="tabcontent">
+    <div id="pageOne" class="tabcontent">
 
-    <label for="Indebted_regions"> Chose Regions:</label>
+        <h1>Show for </h1>
+
+
         <section id="data">
             <form>
+                <label for="Indebted_regions"> Chose Regions:</label>
                 <select name="Indebted_regions" id="sorting">
                     <option id="BLEKINGE" name='Indebted_regions' value="BLEKINGE">BLEKINGE</option>
                     <option id="DALARNA" name='Indebted_regions' value="DALARNA">DALARNA</option>
@@ -52,9 +55,9 @@
         </section>
     </div>
     <!-- page two-->
-    <div id="News" class="tabcontent">
-        <h3>News</h3>
-        <p>Some news this fine day!</p>
+    <div id="pageTwo" class="tabcontent">
+        <h3>Page Two</h3>
+
     </div>
 
 
