@@ -10,6 +10,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../Style.css">
     <script src="../onePageApplikation.js"></script>
+    <script src="Sql.js"></script>
+
 </head>
 
 <body>
@@ -52,10 +54,10 @@
                     <option id="VASTRA GOTALAND" name='Indebted_regions' value="VASTRA GOTALAND">VASTRA GOTALAND</option>
                     <option value="ALL" name='Indebted_regions'>All Regions in Sweden</option>
                 </select>
-                <button type="button" > Get Data</button><br>
+                <button type="button" onclick="getData(false);"> Get Data</button><br>
                 <label> Make Inserts:</label>
                 <input type="number" id="goThroughAgain">
-                <button type="button">Run Test</button>
+                <button type="button" onclick="getData(true);">Run Test</button>
             </form>
             <div id="chartData_container">
                 <canvas id="myCharyOne"></canvas>
