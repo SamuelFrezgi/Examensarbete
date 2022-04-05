@@ -50,7 +50,8 @@
                     <option id="VASTRA GOTALAND" name='Indebted_regions' value="VASTRA GOTALAND">VASTRA GOTALAND</option>
                     <option value="ALL" name='Indebted_regions'>All Regions in Sweden</option>
                 </select>
-                <button type="button" > Get Data</button>
+                <button type="button" > Get Data</button><br>
+                <label> Make Inserts:</label>
                 <input type="number" id="goThroughAgain">
                 <button type="button">Run Test</button>
             </form>
