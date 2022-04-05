@@ -54,10 +54,10 @@
                     <option id="VASTRA GOTALAND" name='Indebted_regions' value="VASTRA GOTALAND">VASTRA GOTALAND</option>
                     <option value="ALL" name='Indebted_regions'>All Regions in Sweden</option>
                 </select>
-                <button type="button" onclick="getData(false);"> Get Data</button><br>
+                <button type="button" onclick="getData();"> Get Data</button><br>
                 <label> Make Inserts:</label>
                 <input type="number" id="goThroughAgain">
-                <button type="button" onclick="getData(true);">Run Test</button>
+                <button type="button" onclick="getData();">Run Test</button>
             </form>
             <div id="chartData_container">
                 <canvas id="myCharyOne"></canvas>
