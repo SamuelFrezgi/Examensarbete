@@ -187,5 +187,41 @@ function templateData(data) {
         }
 
     }
-    
+    //format the data that we can pass into chart js libaray 
+    let templatedData = {
+        labels: year,
+        datasets: [
+            {
+                label: "man",
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: "rgba(59, 89, 152, 0.75)",
+                borderColor: "rgba(59, 89, 152, 1)",
+                pointHoverBackgroundColor: "rgba(59, 89, 152, 1)",
+                pointHoverBorderColor: "rgba(59, 89, 152, 1)",
+                data: man
+            },
+            {
+                label: "Kvinna",
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: "rgba(29, 202, 255, 0.75)",
+                borderColor: "rgba(29, 202, 255, 1)",
+                pointHoverBackgroundColor: "rgba(29, 202, 255, 1)",
+                pointHoverBorderColor: "rgba(29, 202, 255, 1)",
+                data: Kvinna
+            },
+            {
+                label: "total",
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: "rgba(211, 72, 54, 0.75)",
+                borderColor: "rgba(211, 72, 54, 1)",
+                pointHoverBackgroundColor: "rgba(211, 72, 54, 1)",
+                pointHoverBorderColor: "rgba(211, 72, 54, 1)",
+                data: total
+            }
+        ]
+    };
+    return templatedData;
 }
