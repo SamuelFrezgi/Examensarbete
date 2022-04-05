@@ -14,6 +14,7 @@ function getData() {
     // make a request to database to get the number of records
     $.ajax({
         url: 'dbConnection.php?regions=' + county,
+        
         type: 'get',
         dataType: 'json',
         success: function (data) {
