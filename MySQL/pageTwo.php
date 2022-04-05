@@ -5,25 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> kronofogdens dataset with MongoDB web application</title>
+    <title> kronofogdens dataset with MySQL web application</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../Style.css">
 
-    <script src="data.js"></script>
+    <script src="data2.js"></script>
 
 </head>
 
 <body>
-    
-    <div id="a_nav_pages" class="flex-parent jc-center">
-        <a class="tablink">page One</a> <a class="tablink" href="pageTwo.php">page Two</a>
+    <div id="a_nav_pages" class="flex-parent jc-center" >
+        <a class="tablink">page Two</a> <a class="tablink" href="pageOne.php">page One</a>
     </div>
 
-   
+    
     <!-- page one-->
     <div id="pageOne" class="tabcontent">
+
         <h1>MySQL </h1>
+
+
         <section id="data">
             <form>
                 <label for="Indebted_regions"> Chose Regions:</label>
@@ -66,7 +68,7 @@
 
 
 
-
+    <script src="../onePageApplikation.js"></script>
 
 </body>
 

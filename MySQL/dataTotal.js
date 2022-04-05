@@ -13,7 +13,7 @@ function getData() {
    
     // make a request to database to get the number of records
     $.ajax({
-        url: 'dbConnection.php?regions=' + county,
+        url: 'mySQL_dataTotal_Connection.php?regions=' + county,
         
         type: 'get',
         dataType: 'json',

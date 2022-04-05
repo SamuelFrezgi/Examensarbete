@@ -9,23 +9,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../Style.css">
-   
-    <script src="data.js"></script>
+
+    <script src="dataTotal.js"></script>
 
 </head>
 
 <body>
-    <div id="topnav" class="flex-parent jc-center">
-        <button id="firstButton" class="tablink">Page one </button>
-        <button id="secondButton" class="tablink">Page Two</button>
+    
+    <div id="a_nav_pages" class="flex-parent jc-center">
+        <a class="tablink">page One</a> <a class="tablink" href="pageTwo.php">page Two</a>
     </div>
 
+   
     <!-- page one-->
     <div id="pageOne" class="tabcontent">
-
         <h1>MySQL </h1>
-
-
         <section id="data">
             <form>
                 <label for="Indebted_regions"> Chose Regions:</label>
@@ -65,11 +63,7 @@
 
         </section>
     </div>
-    <!-- page two-->
-    <div id="pageTwo" class="tabcontent">
-        <h3>Page Two</h3>
 
-    </div>
 
 
     <script src="../onePageApplikation.js"></script>
