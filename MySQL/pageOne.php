@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> kronofogdens dataset with MySQL web application</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../Style.css">
-    <script src="../onePageApplikation.js"></script>
+   
     <script src="Sql.js"></script>
 
 </head>
 
 <body>
-    <div id="topnav">
-        <button class="tablink" onclick="openPage('pageOne',this)">Page one </button>
-        <button class="tablink" onclick="openPage('pageTwo',this)" id="defaultOpen">Page Two</button>
+    <div id="topnav" class="flex-parent jc-center">
+        <button id="firstButton" class="tablink">Page one </button>
+        <button id="secondButton" class="tablink">Page Two</button>
     </div>
 
     <!-- page one-->
@@ -72,8 +72,7 @@
     </div>
 
 
-
-
+    <script src="../onePageApplikation.js"></script>
 
 </body>
 

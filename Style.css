@@ -6,34 +6,63 @@ body, html {
   margin: 0;
   font-family: Arial;
 }
+.flex-parent {
+  display: flex;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+button.margin-right {
+  margin-right: 20px;
+}
 
 /* Style tab links */
 .tablink {
-  background-color: #555;
+  background-color: rgb(62, 208, 79);
   color: white;
-  float: left;
+  float: center;
   border: none;
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
   font-size: 17px;
-  width: 25%;
+  margin: 10px;
+ 
+ 
 }
 
 .tablink:hover {
-  background-color: #777;
+  background-color:  #304ddf;
 }
 
 /* Style the tab content (and add height:100% for full page content) */
 .tabcontent {
   color: black;
-  display: block;
+ 
   padding: 100px 20px;
-  height: 100%;
+  
+}
+form{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+
+}
+h1{
+  text-align: center;
 }
 #chartData_container{
   background-color: #000;
   color: #fff;
-  margin: 10px;
-  width: 80%;
+  margin: auto;
+  width: 60%;
+  height: 500px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+
+#pageTwo{
+  display: none;
 }
