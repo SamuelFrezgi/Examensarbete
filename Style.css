@@ -31,3 +31,8 @@ body, html {
   padding: 100px 20px;
   height: 100%;
 }
+#chartData_container{
+  background-color: #000;
+  margin: 10px;
+  width: 80%;
+}

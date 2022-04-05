@@ -50,7 +50,13 @@
                     <option id="VASTRA GOTALAND" name='Indebted_regions' value="VASTRA GOTALAND">VASTRA GOTALAND</option>
                     <option value="ALL" name='Indebted_regions'>All Regions in Sweden</option>
                 </select>
+                <button type="button" > Get Data</button>
+                <input type="number" id="goThroughAgain">
+                <button type="button">Run Test</button>
             </form>
+            <div id="chartData_container">
+                <canvas id="myCharyOne"></canvas>
+            </div>
 
         </section>
     </div>
