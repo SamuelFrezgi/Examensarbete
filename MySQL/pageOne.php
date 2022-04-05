@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../Style.css">
    
-    <script src="Sql.js"></script>
+    <script src="../data.js"></script>
 
 </head>
 
