@@ -25,7 +25,30 @@ if ($_GET['regions'] == 'Entirely') {
     );
 
     $result =  $conn->executeCommand('db_comp', $mongoCommand);
-} 
+} else {
+    $mongoCommand = new MongoDB\Driver\Command(
+        [
+            'aggregate' => 'indebted',
+
+            'pipeline' => [
+                [
+                    '$match' => [
+                        'regions' => $_GET['regions']
+                    ]
+                ],
+                ['$group' => [
+                    '_id' => ['year' => '$year', 'gender' => '$gender', 'regions' => '$regions'],
+                    'total' => [
+                        '$sum' => '$numberOfPeople'
+                    ]
+                ]]
+            ],
+            'explain' => false
+        ]
+    );
+
+    $result =  $conn->executeCommand('db_comp', $mongoCommand);
+}
 
 $result = $result->toArray();
 

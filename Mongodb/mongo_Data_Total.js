@@ -10,11 +10,11 @@ function getData() {
     // get the selected region by the user
     let county = document.getElementById('sorting').value;
     console.log(county, 'sorting');
-   
+
     // make a request to database to get the number of records
     $.ajax({
         url: 'dbConnection.php?regions=' + county,
-        
+
         type: 'get',
         dataType: 'json',
         success: function (data) {
@@ -64,9 +64,26 @@ function drawGraph_WithChart(templatedData) {
 }
 
 function templateData(data) {
-    // console.log('===========results=========================');
-    // console.log(data);
-    // console.log('====================================');
+   
+    // for (var i = 0; i < data.length; i++) {
+    //     let obj;
+    //     if (obj = "year") {
+    //         data[i]._id.year;
+    //     }
+    //     if (obj = "gender") {
+    //         data[i]._id.gender;
+    //     }
+    //     if (obj = "regions") {
+    //         data[i]._id.regions;
+    //     }
+    //     if (obj = "total") {
+    //         data[i].total;
+    //     }
+    //     data[i] = obj;
+
+    // }
+
+
     var year = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
     var man = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var Kvinna = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
