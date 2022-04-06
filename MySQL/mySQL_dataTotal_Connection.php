@@ -18,7 +18,7 @@ if ($mysqli->connect_error) {
 $Indebted_regions = $_GET['regions'];
 
 //check for the region that user select from the browser to get data accordingly
-if ($Indebted_regions == 'ALL') {
+if ($Indebted_regions == 'Entirely') {
 
     $sql = sprintf("SELECT year,gender,regions, sum(numberOfPeople) as total FROM indebted group by year, gender,regions;");
 
