@@ -65,23 +65,17 @@ function drawGraph_WithChart(templatedData) {
 
 function templateData(data) {
    
-    // for (var i = 0; i < data.length; i++) {
-    //     let obj;
-    //     if (obj = "year") {
-    //         data[i]._id.year;
-    //     }
-    //     if (obj = "gender") {
-    //         data[i]._id.gender;
-    //     }
-    //     if (obj = "regions") {
-    //         data[i]._id.regions;
-    //     }
-    //     if (obj = "total") {
-    //         data[i].total;
-    //     }
-    //     data[i] = obj;
+   //iterated in the same order
+    for (var i = 0; i < data.length; i++) {
+        let obj = {
+            "year": data[i]._id.year,
+            "gender": data[i]._id.gender,
+            "regions": data[i]._id.regions,
+            "total": data[i].total
+        }
 
-    // }
+        data[i] = obj;
+    }
 
 
     var year = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
