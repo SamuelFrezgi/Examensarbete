@@ -22,7 +22,7 @@
    
     <!-- page one-->
     <div id="pageOne" class="tabcontent">
-        <h1>MySQL </h1>
+        <h1>MongoDB Web application </h1>
         <section id="data">
             <form>
                 <label for="Indebted_regions"> Chose Regions:</label>
