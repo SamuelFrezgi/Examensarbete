@@ -60,7 +60,7 @@
                 <button type="button" onclick="getData();">Run Test</button>
             </form>
             <div id="chartData_container">
-                <canvas id="myCharyOne"></canvas>
+                <canvas id="myCharyTwo"></canvas>
             </div>
 
         </section>
