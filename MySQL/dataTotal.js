@@ -1,6 +1,12 @@
 
 
 
+
+
+
+
+
+// add comment
 //Required variable to store the data retrivial time  and keep trak of number of iteration and if enable chart  or not
 
 var allowChart;
