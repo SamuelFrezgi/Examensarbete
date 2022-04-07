@@ -75,6 +75,7 @@ function templateData(data) {
         }
 
         data[i] = obj;
+        //console.log(data[i] = obj);
     }
 
 
