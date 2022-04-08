@@ -5,31 +5,53 @@
 
 var allowChart;
 var myChary;
-
+var loop = 0;
+var start ;
 function getData() {
     // get the selected region by the user
     let county = document.getElementById('sorting').value;
     console.log(county, 'sorting');
-   
+
+    start = performance.now();
+    fetch_From_DB(county);
+
+
+}
+function fetch_From_DB(county) {
     // make a request to database to get the number of records
     $.ajax({
         url: 'mySQL_dataTotal_Connection.php?regions=' + county,
-        
+
         type: 'get',
         dataType: 'json',
         success: function (data) {
             // pass the fetched data to formatedData function to format it according to requirements and-
             // then pass the formated data to 
             // drawGraph
-            drawGraph_WithChart(templateData(data));
+            // att man alltid hämtar datan flera gånger 
+            if (loop < 100) {
+                loop++;
+                fetch_From_DB(county);
+
+            } else {
+                loop = 0;
+                let stoptime = performance.now();
+                console.log("Tiden", start, stoptime, stoptime - start);
+                
+                drawGraph_WithChart(templateData(data));
+
+            }
+
+
+
         },
         error: function (request, status, error) {
             console.error(error);
         }
     });
 
-}
 
+}
 function drawGraph_WithChart(templatedData) {
     //get the canvas id to show the chart
     const canvas = document.getElementById('myCharyOne');
