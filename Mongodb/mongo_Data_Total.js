@@ -64,6 +64,10 @@ function drawGraph_WithChart(templatedData) {
 }
 
 function templateData(data) {
+    // iterate each element in an array  
+    // we create an obj 
+    // store the obj in the same index 
+    // in mongodb it will show id and total, json format that have same data as sql.
    
    //iterated in the same order
     for (var i = 0; i < data.length; i++) {
