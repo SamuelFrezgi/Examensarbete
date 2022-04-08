@@ -8,3 +8,6 @@ $("#secondButton").on("click", function () {
     $("#pageTwo").show();
     $("#pageOne").hide();
 });
+
+
+// test on laptop
