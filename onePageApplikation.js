@@ -10,4 +10,3 @@ $("#secondButton").on("click", function () {
 });
 
 
-// test on laptop
