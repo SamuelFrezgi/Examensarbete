@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <title> kronofogdens dataset with MySQL web application</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -15,18 +14,10 @@
     <link rel="stylesheet" href="../Style.css">
 
     <script src="data_WithOutTotal.js"></script>
-=======
-    <title> kronofogdens dataset with MongoDB web application</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="../Style.css">
-    <script src="mongo_Data_Total.js"></script>
->>>>>>> 81388da8ac3a8de0eec1c9d62c1a1cda14a3edb2
 
 </head>
 
 <body>
-<<<<<<< HEAD
     <nav class="navbar navbar-dark bg-secondary">
         <ul class="nav navbar-nav ">
             <li class="nav-item">
@@ -48,18 +39,6 @@
         <h1>Web application with MySQL, with out total </h1>
 
 
-=======
-    
-    <div id="a_nav_pages" class="flex-parent jc-center">
-        <a class="tablink">page Two</a> <a class="tablink" href="pageOne.php">page One</a>
-        
-    </div>
-
-   
-    <!-- page one-->
-    <div id="pageOne" class="tabcontent">
-        <h1>MongoDB Web application </h1>
->>>>>>> 81388da8ac3a8de0eec1c9d62c1a1cda14a3edb2
         <section id="data">
             <form>
                 <label for="Indebted_regions"> Chose Regions:</label>
@@ -89,18 +68,9 @@
                     <option value="Entirely" name='Indebted_regions'>All Regions in Sweden</option>
                 </select>
                 <button type="button" onclick="getData();"> Get Data</button><br>
-<<<<<<< HEAD
             </form>
             <div id="chartData_container">
                 <canvas id="myCharyTwo"></canvas>
-=======
-                <label> Make Inserts:</label>
-                <input type="number" id="goThroughAgain">
-                <button type="button" onclick="getData();">Run Test</button>
-            </form>
-            <div id="chartData_container">
-                <canvas id="myCharyOne"></canvas>
->>>>>>> 81388da8ac3a8de0eec1c9d62c1a1cda14a3edb2
             </div>
 
         </section>
@@ -108,11 +78,7 @@
 
 
 
-<<<<<<< HEAD
     <script src="../onePageApplikation.js"></script>
-=======
-
->>>>>>> 81388da8ac3a8de0eec1c9d62c1a1cda14a3edb2
 
 </body>
 
