@@ -5,24 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> kronofogdens dataset with MongoDB web application</title>
+    <title> kronofogdens dataset with MySQL web application</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../Style.css">
     <script src="mongo_Data_Total.js"></script>
 
 </head>
 
 <body>
-    
-    <div id="a_nav_pages" class="flex-parent jc-center">
-        <a class="tablink">page One</a> <a class="tablink" href="pageTwo.php">page Two</a>
-    </div>
-
-   
+    <nav class="navbar">
+        <ul class="nav navbar-nav ">
+            <li class="nav-item">
+                <a class="nav-link">page One</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="pageTwo.php">page Two</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+        </ul>
+    </nav>
     <!-- page one-->
     <div id="pageOne" class="tabcontent">
-        <h1>MongoDB Web application </h1>
+        <h1>Web application with MongoDB, represents total</h1>
+        <hr style="border: 1px solid #000;">
         <section id="data">
             <form>
                 <label for="Indebted_regions"> Chose Regions:</label>
@@ -52,9 +63,6 @@
                     <option value="Entirely" name='Indebted_regions'>All Regions in Sweden</option>
                 </select>
                 <button type="button" onclick="getData();"> Get Data</button><br>
-                <label> Make Inserts:</label>
-                <input type="number" id="goThroughAgain">
-                <button type="button" onclick="getData();">Run Test</button>
             </form>
             <div id="chartData_container">
                 <canvas id="myCharyOne"></canvas>
@@ -65,7 +73,7 @@
 
 
 
-
+    <script src="../onePageApplikation.js"></script>
 
 </body>
 
