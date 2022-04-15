@@ -3,15 +3,24 @@
 var allowChart;
 var myChary;
 var loop = 0;
-var start ;
+var startTime;
+var completeTime = [];
+var stopTime;
+var iterations = 10;
+
 function getData() {
-    // get the selected region by the user
-    let county = document.getElementById('sorting').value;
-    console.log(county, 'sorting');
+    // if the number of iterations is greater than 0, run the blow code 
+    if (iterations > 0) {
+        // get the selected region by the user
+        let county = document.getElementById('sorting').value;
+        console.log(county, 'sorting');
+        // record initail time to check performance 
+        startTime = Date.now();
+        fetch_From_DB(county);
+    } else {
+         getSaveTime();
 
-    start = performance.now();
-    fetch_From_DB(county);
-
+    }
 
 }
 function fetch_From_DB(county) {
@@ -22,31 +31,47 @@ function fetch_From_DB(county) {
         type: 'get',
         dataType: 'json',
         success: function (data) {
-            // pass the fetched data to formatedData function to format it according to requirements and-
-            // then pass the formated data to 
-            // drawGraph
-            // att man alltid hämtar datan flera gånger 
+
             if (loop < 100) {
                 loop++;
                 fetch_From_DB(county);
 
             } else {
                 loop = 0;
-                let stoptime = performance.now();
-                console.log("Tiden", start, stoptime, stoptime - start);
-                
+                // Stop the time 
+                stopTime = Date.now();
+                completeTime.push(stopTime - startTime);
+                console.log(startTime, stopTime, stopTime - startTime);
+                // pass the fetched data to formatedData function to format it 
+                //according to requirements and then pass the formated data to 
+                // drawGraph
                 drawGraph_WithChart(templateData(data));
+                iterations--;
+                getData();
 
             }
-
-
 
         },
         error: function (request, status, error) {
             console.error(error);
         }
     });
+}
+function getSaveTime() {
 
+    let text = "";
+    for (let i = 0; i < completeTime.length; i++) {
+        text += completeTime[i] + "\n";
+
+    }
+
+    // Make anchor and click it!
+    var anchor = document.createElement("a");
+    anchor.setAttribute("href", "data:text/html;charset=utf-8," + text);
+    anchor.setAttribute("download", "my_data.csv");
+    anchor.innerHTML = "Click Here to download";
+    document.body.appendChild(anchor);
+    anchor.click();
 
 }
 function drawGraph_WithChart(templatedData) {
@@ -60,17 +85,11 @@ function drawGraph_WithChart(templatedData) {
             type: 'line', //chart type
             data: templatedData,//data to display on the chart 
             options: {
-                options: {
-                    scales: {
-                        yAxes: [{
-                            display: true, // display true
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
+                scales: {
+                    y: {
+                        beginAtZero: true 
                     }
                 }
-
             }
 
         });
@@ -83,9 +102,7 @@ function drawGraph_WithChart(templatedData) {
 }
 
 function templateData(data) {
-    // console.log('===========results=========================');
-    // console.log(data);
-    // console.log('====================================');
+
     var year = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
     var man = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var Kvinna = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
