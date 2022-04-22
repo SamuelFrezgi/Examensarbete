@@ -27,14 +27,15 @@ function fetch_From_DB(county) {
     // make a request to database to get the number of records
     $.ajax({
         url: 'mySQL_dataTotal_Connection.php?regions=' + county,
-
         type: 'get',
         dataType: 'json',
         success: function (data) {
 
             if (loop < 100) {
                 loop++;
+                console.log( loop + " Old    " + "      new")
                 fetch_From_DB(county);
+                
 
             } else {
                 loop = 0;
@@ -64,14 +65,13 @@ function getSaveTime() {
         text += completeTime[i] + "\n";
 
     }
-
-    // Make anchor and click it!
-    var anchor = document.createElement("a");
-    anchor.setAttribute("href", "data:text/html;charset=utf-8," + text);
-    anchor.setAttribute("download", "my_data.csv");
-    anchor.innerHTML = "Click Here to download";
-    document.body.appendChild(anchor);
-    anchor.click();
+    
+    var save = document.createElement("a");
+    save.setAttribute("href", "data:text/html;charset=utf-8," + text);
+    save.setAttribute("download", "my_data.csv");
+    save.innerHTML = "Click Here to download";
+    document.body.appendChild(save);
+    save.click();
 
 }
 function drawGraph_WithChart(templatedData) {
@@ -92,7 +92,7 @@ function drawGraph_WithChart(templatedData) {
                 }
             }
 
-        });
+     });
 
     } else {
         myChary.config.data = templatedData;

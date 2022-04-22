@@ -32,7 +32,7 @@
     </nav>
     <!-- page one-->
     <div id="pageOne" class="tabcontent">
-        <h1>Web application with MongoDB, represents total</h1>
+        <h1>Web application with MongoDB, presents total</h1>
         <hr style="border: 1px solid #000;">
         <section id="data">
             <form>

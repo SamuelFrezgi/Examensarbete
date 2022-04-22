@@ -5,30 +5,102 @@
 
 var allowChart = false;
 var myChary;
+var loop = 0;
+var startTime;
+var completeTime = [];
+var stopTime;
+var iterations = 10;
 
 function getData() {
-    // get the selected region by the user
-    let county = document.getElementById('sorting').value;
-    console.log(county, 'sorting');
+    // if the number of iterations is greater than 0, run the blow code 
+    if (iterations > 0) {
+        // get the selected region by the user
+        let county = document.getElementById('sorting').value;
+        console.log(county, 'sorting');
+        // record initail time to check performance 
+        startTime = Date.now();
+        fetch_From_DB(county);
+    } else {
+         getSaveTime();
 
+    }
+
+}
+function fetch_From_DB(county) {
     // make a request to database to get the number of records
     $.ajax({
         url: 'dbConnection.php?regions=' + county,
-
         type: 'get',
         dataType: 'json',
         success: function (data) {
-            // pass the fetched data to formatedData function to format it according to requirements and-
-            // then pass the formated data to 
-            // drawGraph
-            drawGraph_WithChart(templateData(data));
+
+            if (loop < 100) {
+                loop++;
+                console.log( loop + " Old    " + "      new")
+                fetch_From_DB(county);
+                
+
+            } else {
+                loop = 0;
+                // Stop the time 
+                stopTime = Date.now();
+                completeTime.push(stopTime - startTime);
+                console.log(startTime, stopTime, stopTime - startTime);
+                // pass the fetched data to formatedData function to format it 
+                //according to requirements and then pass the formated data to 
+                // drawGraph
+                drawGraph_WithChart(templateData(data));
+                iterations--;
+                getData();
+
+            }
+
         },
         error: function (request, status, error) {
             console.error(error);
         }
     });
+}
+function getSaveTime() {
+
+    let text = "";
+    for (let i = 0; i < completeTime.length; i++) {
+        text += completeTime[i] + "\n";
+
+    }
+    
+    var save = document.createElement("a");
+    save.setAttribute("href", "data:text/html;charset=utf-8," + text);
+    save.setAttribute("download", "my_data.csv");
+    save.innerHTML = "Click Here to download";
+    document.body.appendChild(save);
+    save.click();
 
 }
+
+// function getData() {
+//     // get the selected region by the user
+//     let county = document.getElementById('sorting').value;
+//     console.log(county, 'sorting');
+
+//     // make a request to database to get the number of records
+//     $.ajax({
+//         url: 'dbConnection.php?regions=' + county,
+
+//         type: 'get',
+//         dataType: 'json',
+//         success: function (data) {
+//             // pass the fetched data to formatedData function to format it according to requirements and-
+//             // then pass the formated data to 
+//             // drawGraph
+//             drawGraph_WithChart(templateData(data));
+//         },
+//         error: function (request, status, error) {
+//             console.error(error);
+//         }
+//     });
+
+// }
 
 function drawGraph_WithChart(templatedData) {
     //get the canvas id to show the chart
@@ -79,7 +151,7 @@ function templateData(data) {
         }
 
         data[i] = obj;
-        //console.log(data[i] = obj);
+        
     }
 
 
@@ -89,7 +161,8 @@ function templateData(data) {
     var total = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var gender = [];
 
-    //loop through the data one by one check its year , if match then check based on the gender  and push their total into their 
+    //loop through the data one by one check its year ,
+    // if match then check based on the gender  and push their total into their 
     //respective array and the sum of both into total array
 
     for (var i in data) {
