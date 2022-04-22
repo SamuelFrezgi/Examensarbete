@@ -36,7 +36,7 @@
     <!-- page one-->
     <div id="pageOne" class="tabcontent">
 
-        <h1>Web application with MySQL, with out total </h1>
+        <h1>Web application with MongoDB, with out total </h1>
 
 
         <section id="data">
