@@ -1,15 +1,13 @@
 
 
 
-//Required variable to store the data retrivial time  and keep trak of number of iteration and if enable chart  or not
-
 var allowChart = false;
 var myChary;
 var loop = 0;
 var startTime;
 var completeTime = [];
 var stopTime;
-var iterations = 10;
+var iterations = 100;
 
 function getData() {
     // if the number of iterations is greater than 0, run the blow code 
@@ -34,9 +32,9 @@ function fetch_From_DB(county) {
         dataType: 'json',
         success: function (data) {
 
-            if (loop < 100) {
+            if (loop < 10) {
                 loop++;
-                console.log( loop + " Old    " + "      new")
+               // console.log( loop);
                 fetch_From_DB(county);
                 
 
