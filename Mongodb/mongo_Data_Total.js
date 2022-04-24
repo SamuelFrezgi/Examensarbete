@@ -100,6 +100,8 @@ function getSaveTime() {
 
 // }
 
+
+
 function drawGraph_WithChart(templatedData) {
     //get the canvas id to show the chart
     const canvas = document.getElementById('myCharyOne');
@@ -111,20 +113,14 @@ function drawGraph_WithChart(templatedData) {
             type: 'line', //chart type
             data: templatedData,//data to display on the chart 
             options: {
-                options: {
-                    scales: {
-                        yAxes: [{
-                            display: true, // display true
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
+                scales: {
+                    y: {
+                        beginAtZero: true 
                     }
                 }
-
             }
 
-        });
+     });
 
     } else {
         myChary.config.data = templatedData;
