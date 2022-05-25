@@ -6,7 +6,7 @@ var loop = 0;
 var startTime;
 var completeTime = [];
 var stopTime;
-var iterations = 100;
+var iterations = 1;
 
 function getData() {
     // if the number of iterations is greater than 0, run the blow code 
@@ -18,7 +18,8 @@ function getData() {
         startTime = Date.now();
         fetch_From_DB(county);
     } else {
-         getSaveTime();
+        // getSaveTime();
+       
 
     }
 
@@ -33,7 +34,7 @@ function fetch_From_DB(county) {
 
             if (loop < 10) {
                 loop++;
-               // console.log( loop);
+                console.log( loop);
                 fetch_From_DB(county);
                 
 
@@ -109,7 +110,8 @@ function templateData(data) {
     var total = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var gender = [];
 
-    //loop through the data one by one check its year , if match then check based on the gender  and push their total into their 
+    //loop through the data one by one check its year , 
+    //if match then check based on the gender  and push their total into their 
     //respective array and the sum of both into total array
 
     for (var i in data) {
@@ -222,6 +224,7 @@ function templateData(data) {
             }
 
         }
+        
 
     }
     //format the data that we can pass into chart js libaray 

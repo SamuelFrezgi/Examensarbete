@@ -2,31 +2,115 @@
 
 
 //Required variable to store the data retrivial time  and keep trak of number of iteration and if enable chart  or not
-
 var allowChart;
 var myChary;
+var loop = 0;
+var startTime;
+var completeTime = [];
+var stopTime;
+var iterations = 1;
 
 function getData() {
-    // get the selected region by the user
-    let county = document.getElementById('sorting').value;
-    console.log(county, 'sorting');
-   
+    // if the number of iterations is greater than 0, run the blow code 
+    if (iterations > 0) {
+        // get the selected region by the user
+        let county = document.getElementById('sorting').value;
+        console.log(county, 'sorting');
+        // record initail time to check performance 
+        startTime = Date.now();
+        fetch_From_DB(county);
+    } else {
+        // getSaveTime();
+       
+
+    }
+
+}
+function fetch_From_DB(county) {
     // make a request to database to get the number of records
     $.ajax({
         url: 'mySQL_dataTotal_Connection.php?regions=' + county,
-        
         type: 'get',
         dataType: 'json',
         success: function (data) {
-            // pass the fetched data to formatedData function to format it according to requirements and-
-            // then pass the formated data to 
-            // drawGraph
-            drawGraph_WithChart(templateData(data));
+
+            if (loop < 10) {
+                loop++;
+                console.log( loop);
+                fetch_From_DB(county);
+                
+
+            } else {
+                loop = 0;
+                // Stop the time 
+                stopTime = Date.now();
+                completeTime.push(stopTime - startTime);
+                console.log(startTime, stopTime, stopTime - startTime);
+                // pass the fetched data to formatedData function to format it 
+                //according to requirements and then pass the formated data to 
+                // drawGraph
+                drawGraph_WithChart(templateData(data));
+                iterations--;
+                getData();
+
+            }
+
         },
         error: function (request, status, error) {
             console.error(error);
         }
     });
+}
+
+function fetch_From_DB(county) {
+    // make a request to database to get the number of records
+    $.ajax({
+        url: 'mySQL_dataTotal_Connection.php?regions=' + county,
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+
+            if (loop < 10) {
+                loop++;
+                console.log( loop);
+                fetch_From_DB(county);
+                
+
+            } else {
+                loop = 0;
+                // Stop the time 
+                stopTime = Date.now();
+                completeTime.push(stopTime - startTime);
+                console.log(startTime, stopTime, stopTime - startTime);
+                // pass the fetched data to formatedData function to format it 
+                //according to requirements and then pass the formated data to 
+                // drawGraph
+                drawGraph_WithChart(templateData(data));
+                iterations--;
+                getData();
+
+            }
+
+        },
+        error: function (request, status, error) {
+            console.error(error);
+        }
+    });
+}
+function getSaveTime() {
+
+    let text = "";
+    for (let i = 0; i < completeTime.length; i++) {
+        text += completeTime[i] + "\n";
+
+    }
+    
+    var save = document.createElement("a");
+    save.setAttribute("href", "data:text/html;charset=utf-8," + text);
+    save.setAttribute("download", "my_data.csv");
+    save.innerHTML = "Click Here to download";
+    document.body.appendChild(save);
+    save.click();
 
 }
 function drawGraph_WithChart(templatedData) {

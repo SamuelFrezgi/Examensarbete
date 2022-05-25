@@ -75,11 +75,6 @@
 
         </section>
     </div>
-
-
-
-    <script src="../onePageApplikation.js"></script>
-
 </body>
 
 </html>
